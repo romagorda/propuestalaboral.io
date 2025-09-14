@@ -1,77 +1,70 @@
-/* Reset básico */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: "Segoe UI", sans-serif;
 }
 
-/* Body y contenedor */
 body {
-    background-color: #F7F2E7;
-    color: #080026;
+    background: #fdfcf8;
+    color: #222;
 }
 
+/* Layout general */
 .container {
-    display: flex;
-    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 200px 1fr 250px;
+    gap: 20px;
+    height: 100vh;
+    padding: 20px;
 }
 
-/* Sidebar izquierdo */
+/* Sidebar izquierda */
 .sidebar {
-    width: 220px;
-    background-color: #080026;
-    color: #FFD900;
+    background: #080026;
+    border-radius: 15px;
+    color: #fff;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px 10px;
 }
 
 .sidebar .profile {
-    text-align: center;
-    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.sidebar .profile img {
-    width: 80px;
+.sidebar img {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    margin-bottom: 10px;
-}
-
-.sidebar .profile span {
-    display: block;
-    font-weight: bold;
-    color: #FFD900;
 }
 
 .sidebar .menu a {
     display: block;
-    color: #FFD900;
+    padding: 10px;
+    color: #fff;
     text-decoration: none;
-    margin: 10px 0;
-    padding: 8px 10px;
-    border-radius: 6px;
-    transition: 0.2s;
+    border-radius: 20px;
+    margin: 5px 0;
+    transition: background 0.3s;
 }
 
 .sidebar .menu a:hover {
-    background-color: #3A0162;
-}
-
-.sidebar footer {
-    text-align: center;
-    font-size: 14px;
-    opacity: 0.7;
+    background: #2c2565;
 }
 
 /* Main content */
 .main {
-    flex: 1;
-    padding: 20px 30px;
+    background: #f7f2e9;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(9, 9, 9, 0.179);
 }
 
-/* Header */
 .header {
     display: flex;
     justify-content: space-between;
@@ -79,57 +72,40 @@ body {
     margin-bottom: 20px;
 }
 
-.header h2 {
-    color: #3A0162;
-}
-
 .btn {
-    padding: 10px 15px;
-    background-color: #9B7EDE;
-    color: #F7F2E7;
+    background: #a68ef7;
     border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    color: white;
     font-weight: bold;
-    transition: 0.2s;
+    cursor: pointer;
 }
 
 .btn:hover {
-    background-color: #3A0162;
+    background: #7d5be6;
 }
 
-/* Cards propuestas */
-.propuestas {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background-color: #F7F2E7;
-    border-radius: 12px;
+.propuestas .card {
+   
+    background: white;
+    border-radius: 15px;
     padding: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: 0.2s;
-}
-
-.card:hover {
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    margin-bottom: 15px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
 }
 
 .card h3 {
+    font-size: 18px;
     margin-bottom: 5px;
-    color: #080026;
 }
 
-.card .ubicacion {
+.ubicacion {
     font-size: 14px;
-    color: #3A0162;
-    margin-bottom: 10px;
+    color: #666;
 }
 
-.card .acciones {
+.acciones {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -137,95 +113,184 @@ body {
 }
 
 .ver-mas {
-    padding: 6px 10px;
-    background-color: #9B7EDE;
-    color: #F7F2E7;
+    background: #f2f1ee;
     border: none;
-    border-radius: 6px;
-    font-size: 12px;
-    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 20px;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 .ver-mas:hover {
-    background-color: #3A0162;
+    background: #ddd;
 }
 
 .estrella {
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
-    color: #FFD900;
+    text-decoration:none;
 }
 
-/* Sidebar derecho favoritos */
+/* Favoritos */
 .favoritos {
-    width: 220px;
-    background-color: #F7F2E7;
-    padding: 20px 10px;
-    border-left: 2px solid #9B7EDE;
+    background: #f7f2e9;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0px 2px 5px rgba(9, 9, 9, 0.179);
 }
 
 .favoritos h3 {
     margin-bottom: 15px;
-    color: #3A0162;
 }
 
 .favoritos .card.small {
-    background-color: #9B7EDE;
-    color: #F7F2E7;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-/* Formularios crear/editar/login/registro */
-form {
-    max-width: 400px;
-    margin: 0 auto;
-    background-color: #F7F2E7;
-    padding: 20px 25px;
+    background: #f1ede4;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 10px;
+    margin-bottom: 10px;
+    
 }
 
-form h2 {
+/* ===== Login & Registro ===== */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fdfcf8; /* mismo fondo general */
+}
+
+.auth-box {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    width: 500px;
+    height: 400px;
     text-align: center;
-    margin-bottom: 15px;
-    color: #3A0162;
 }
 
-form input, form textarea {
+.auth-box h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    color: #1c1c2a;
+}
+
+/* Inputs */
+.auth-box input {
     width: 100%;
-    padding: 10px 12px;
-    margin-bottom: 15px;
-    border-radius: 6px;
-    border: 1px solid #3A0162;
-    font-size: 14px;
+    padding: 0.8rem;
+    margin: 0.6rem 0;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 1rem;
+    transition: border 0.3s;
 }
 
-form textarea {
-    resize: vertical;
+.auth-box input:focus {
+    border-color: #a68ef7; /* violeta */
 }
 
-form button {
-    width: 100%;
-    padding: 10px 0;
-    background-color: #9B7EDE;
-    color: #F7F2E7;
+/* Botón */
+.auth-box button {
+    background: #a68ef7;
     border: none;
-    border-radius: 8px;
+    padding: 0.8rem 1.2rem;
+    border-radius: 20px;
+    color: white;
     font-weight: bold;
+    font-size: 1rem;
     cursor: pointer;
-    transition: 0.2s;
+    margin-top: 1rem;
+    width: 100%;
+    transition: background 0.3s;
 }
 
-form button:hover {
-    background-color: #3A0162;
+.auth-box button:hover {
+    background: #7d5be6;
 }
 
-form p {
+/* Links */
+.auth-box a {
+    color: #7d5be6;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-box a:hover {
+    text-decoration: underline;
+}
+
+/* Mensajes */
+.auth-box p {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.auth-box .error {
+    color: red;
+    font-weight: bold;
+}
+
+/* ===== Formulario Crear Propuesta ===== */
+.propuesta-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fdfcf8;
+}
+
+.propuesta-box {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    width: 500px;
+}
+
+.propuesta-box h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    color: #1c1c2a;
     text-align: center;
-    font-size: 14px;
 }
+
+/* Inputs y textarea */
+.propuesta-box input,
+.propuesta-box textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.6rem 0;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 1rem;
+    transition: border 0.3s;
+    resize: none;
+}
+
+.propuesta-box input:focus,
+.propuesta-box textarea:focus {
+    border-color: #a68ef7;
+}
+
+/* Botón */
+.propuesta-box button {
+    background: #a68ef7;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.propuesta-box button:hover {
+    background: #7d5be6;
+}
+
