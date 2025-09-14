@@ -1,0 +1,296 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #fdfcf8;
+    color: #222;
+}
+
+/* Layout general */
+.container {
+    display: grid;
+    grid-template-columns: 200px 1fr 250px;
+    gap: 20px;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Sidebar izquierda */
+.sidebar {
+    background: #080026;
+    border-radius: 15px;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar .profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.sidebar .menu a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    margin: 5px 0;
+    transition: background 0.3s;
+}
+
+.sidebar .menu a:hover {
+    background: #2c2565;
+}
+
+/* Main content */
+.main {
+    background: #f7f2e9;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(9, 9, 9, 0.179);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background: #a68ef7;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #7d5be6;
+}
+
+.propuestas .card {
+   
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.ubicacion {
+    font-size: 14px;
+    color: #666;
+}
+
+.acciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.ver-mas {
+    background: #f2f1ee;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.ver-mas:hover {
+    background: #ddd;
+}
+
+.estrella {
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration:none;
+}
+
+/* Favoritos */
+.favoritos {
+    background: #f7f2e9;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0px 2px 5px rgba(9, 9, 9, 0.179);
+}
+
+.favoritos h3 {
+    margin-bottom: 15px;
+}
+
+.favoritos .card.small {
+    background: #f1ede4;
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 10px;
+    
+}
+
+/* ===== Login & Registro ===== */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fdfcf8; /* mismo fondo general */
+}
+
+.auth-box {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    width: 500px;
+    height: 400px;
+    text-align: center;
+}
+
+.auth-box h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    color: #1c1c2a;
+}
+
+/* Inputs */
+.auth-box input {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.6rem 0;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+
+.auth-box input:focus {
+    border-color: #a68ef7; /* violeta */
+}
+
+/* Botón */
+.auth-box button {
+    background: #a68ef7;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.auth-box button:hover {
+    background: #7d5be6;
+}
+
+/* Links */
+.auth-box a {
+    color: #7d5be6;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-box a:hover {
+    text-decoration: underline;
+}
+
+/* Mensajes */
+.auth-box p {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.auth-box .error {
+    color: red;
+    font-weight: bold;
+}
+
+/* ===== Formulario Crear Propuesta ===== */
+.propuesta-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fdfcf8;
+}
+
+.propuesta-box {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    width: 500px;
+}
+
+.propuesta-box h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    color: #1c1c2a;
+    text-align: center;
+}
+
+/* Inputs y textarea */
+.propuesta-box input,
+.propuesta-box textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.6rem 0;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 1rem;
+    transition: border 0.3s;
+    resize: none;
+}
+
+.propuesta-box input:focus,
+.propuesta-box textarea:focus {
+    border-color: #a68ef7;
+}
+
+/* Botón */
+.propuesta-box button {
+    background: #a68ef7;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.propuesta-box button:hover {
+    background: #7d5be6;
+}
+
