@@ -114,7 +114,7 @@ while ($row = $categorias_result->fetch_assoc()) {
         </header>
 
         <!-- Propuestas -->
-        <section class="propuestas">
+        <section class="propuestas" style="max-height: 70vh; overflow-y: auto; padding-right: 8px;">
             <?php while($p = $result->fetch_assoc()):
                 $fav_stmt = $conn->prepare("SELECT * FROM favoritos WHERE usuario_id=? AND propuesta_id=?");
                 $fav_stmt->bind_param("ii", $usuario_id, $p['id']);
