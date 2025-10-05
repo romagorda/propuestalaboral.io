@@ -89,6 +89,8 @@ $result = $stmt->get_result();
             flex-shrink: 0;
             height: 100%;
             overflow-y: auto;
+            width: 300px; /* Aumentamos el ancho del contenedor de favoritos */
+            min-width: 300px;
         }
         
         /* Scrollbar personalizado para la sección de propuestas */
