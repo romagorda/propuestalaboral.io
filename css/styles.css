@@ -1,3 +1,27 @@
+.propuesta-box select[name="categoria"] {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.6rem 0;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 1rem;
+    background: #f7f2e9;
+    color: #222;
+    transition: border 0.3s;
+}
+.propuesta-box select[name="categoria"]:focus {
+    border-color: #a68ef7;
+}
+.favoritos .card a {
+    text-decoration: none;
+}
+
+/* ---------------------------
+    RESET GLOBAL
+    - Normaliza márgenes, paddings y box-sizing
+    - Define la tipografía base
+    --------------------------- */
 /* Reset */
 * {
     margin: 0;
@@ -6,10 +30,29 @@
     font-family: "Segoe UI", sans-serif;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     background: #fdfcf8;
     color: #222;
+    margin: 0;
 }
+
+.container {
+    display: grid;
+    grid-template-columns: 200px 1fr 250px;
+    gap: 20px;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* ---------------------------
+   LAYOUT GENERAL
+   - Define la estructura de 3 columnas: sidebar/ contenido / sidebar
+   - Ajusta gap y padding global
+   --------------------------- */
 
 /* Layout general */
 .container {
@@ -19,6 +62,21 @@ body {
     height: 100vh;
     padding: 20px;
 }
+
+.sidebar {
+    background: #080026;
+    border-radius: 15px;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ---------------------------
+   SIDEBAR IZQUIERDA
+   - Estilos del panel lateral: perfil, navegación y footer
+   --------------------------- */
 
 /* Sidebar izquierda */
 .sidebar {
@@ -57,6 +115,21 @@ body {
     background: #2c2565;
 }
 
+.main {
+    background: #f7f2e9;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(9, 9, 9, 0.179);
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* llena la altura disponible del grid */
+}
+
+/* ---------------------------
+   CONTENIDO PRINCIPAL
+   - Estilos del contenedor principal donde van las propuestas
+   --------------------------- */
+
 /* Main content */
 .main {
     background: #f7f2e9;
@@ -80,14 +153,19 @@ body {
     color: white;
     font-weight: bold;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .btn:hover {
     background: #7d5be6;
 }
 
+/* ---------------------------
+   TARJETAS DE PROPUESTAS
+   - Diseño de cada tarjeta (.card) usada para listar propuestas
+   - Usamos fondo, border-radius y sombras para destacarlas
+   --------------------------- */
 .propuestas .card {
-   
     background: white;
     border-radius: 15px;
     padding: 15px;
@@ -118,6 +196,7 @@ body {
     padding: 6px 12px;
     border-radius: 20px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .ver-mas:hover {
@@ -127,8 +206,20 @@ body {
 .estrella {
     font-size: 20px;
     cursor: pointer;
-    text-decoration:none;
+    text-decoration: none;
 }
+
+.favoritos {
+    background: #f7f2e9;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0px 2px 5px rgba(9, 9, 9, 0.179);
+}
+
+/* ---------------------------
+   SIDEBAR DERECHA - FAVORITOS
+   - Estilos para el panel de favoritos del usuario
+   --------------------------- */
 
 /* Favoritos */
 .favoritos {
@@ -148,7 +239,132 @@ body {
     padding: 10px;
     margin-bottom: 10px;
     
+/* ===== Estilos para busqueda.php ===== */
+
+/* --- Nuevo estilo moderno para busqueda.php --- */
+.busqueda-form {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    align-items: center;
+    background: linear-gradient(90deg, #a68ef7 0%, #f7c6ff 100%);
+    padding: 18px 24px;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(166, 142, 247, 0.15);
 }
+
+.busqueda-form input[type="text"] {
+    padding: 10px 16px;
+    border-radius: 14px;
+    border: 2px solid #a68ef7;
+    font-size: 1.1rem;
+    width: 250px;
+    background: #fff;
+    transition: border 0.3s, box-shadow 0.3s;
+    box-shadow: 0 1px 4px rgba(166, 142, 247, 0.08);
+}
+.busqueda-form input[type="text"]:focus {
+    border-color: #7d5be6;
+    box-shadow: 0 0 0 2px #e2d6ff;
+}
+
+.busqueda-form select {
+    padding: 10px 16px;
+    border-radius: 14px;
+    border: 2px solid #a68ef7;
+    font-size: 1.1rem;
+    background: #fff;
+    transition: border 0.3s, box-shadow 0.3s;
+    box-shadow: 0 1px 4px rgba(166, 142, 247, 0.08);
+}
+.busqueda-form select:focus {
+    border-color: #7d5be6;
+    box-shadow: 0 0 0 2px #e2d6ff;
+}
+
+.busqueda-form button {
+    background: linear-gradient(90deg, #7d5be6 0%, #a68ef7 100%);
+    border: none;
+    padding: 10px 28px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(166, 142, 247, 0.15);
+    transition: background 0.3s;
+}
+.busqueda-form button:hover {
+    background: linear-gradient(90deg, #f7c6ff 0%, #a68ef7 100%);
+    color: #7d5be6;
+}
+
+/* La sección de propuestas ocupará el espacio restante y tendrá scroll interno */
+.propuestas {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding-right: 8px; /* espacio para scrollbar */
+    /* Asegurar que la sección no exceda la altura del main */
+    max-height: calc(100vh - 220px); /* ajustable según header/padding */
+}
+
+/* Estilos opcionales para el scrollbar Webkit */
+.propuestas::-webkit-scrollbar {
+    width: 10px;
+}
+.propuestas::-webkit-scrollbar-thumb {
+    background: #d6b8ff;
+    border-radius: 10px;
+}
+}
+
+.propuestas .card {
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(66, 58, 94, 0.1);
+    border-left: 8px solid #9379e8;
+    margin-bottom: 22px;
+    padding: 18px 22px;
+    transition: box-shadow 0.2s;
+    position: relative;
+}
+.propuestas .card:hover {
+    box-shadow: 0 4px 24px rgba(89, 65, 170, 0.195);
+}
+.propuestas .card h3 {
+    font-size: 1.25rem;
+    color: #7d5be6;
+    margin-bottom: 8px;
+}
+.propuestas .card p {
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+    color: #444;
+}
+.propuestas .card strong {
+    color: #a68ef7;
+}
+.propuestas .card .acciones {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.propuestas .card .estrella {
+    font-size: 24px;
+    color: #f7c600;
+    text-decoration: none;
+    margin-left: 10px;
+    transition: color 0.2s;
+}
+.propuestas .card .estrella:hover {
+    color: #a68ef7;
+}
+.propuestas p {
+    font-size: 1.05rem;
+    color: #444;
+}
+
 
 /* ===== Login & Registro ===== */
 .auth-container {
@@ -209,6 +425,146 @@ body {
 .auth-box button:hover {
     background: #7d5be6;
 }
+
+/* ==========================
+   ESTILOS PARA perfil.php
+   - Cabecera de perfil, avatar y meta
+   - Lista de propuestas del usuario
+========================== */
+.perfil-page {
+    width: 100vw;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 96vh;
+    background: #fff;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    box-shadow: 0 2px 16px rgba(80,60,160,0.07);
+    padding-left: 32px;
+    padding-right: 32px;
+}
+.perfil-header {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: linear-gradient(90deg, #fff 80%, #e8e6e9 100%);
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(166,142,247,0.06);
+}
+.perfil-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 3px solid #e6dfff;
+}
+.perfil-meta h2 {
+    margin-bottom: 6px;
+    color: #3b1f7a;
+}
+.perfil-meta p {
+    margin: 4px 0;
+    color: #555;
+}
+.perfil-props {
+    margin-top: 18px;
+}
+.perfil-props h3 {
+    margin-bottom: 12px;
+    color: #4a2fa6;
+}
+.perfil-props .card {
+    margin-bottom: 12px;
+}
+.perfil-banner {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.95);
+}
+.perfil-header {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px 6px 20px;
+    position: relative;
+}
+.perfil-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #fff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    margin-top: -70px; /* superpone sobre el banner */
+}
+.perfil-meta {
+    margin-left: 18px;
+}
+.perfil-meta h1 {
+    margin: 4px 0 6px 0;
+    font-size: 22px;
+}
+.perfil-handle {
+    color: #666;
+    margin-bottom: 8px;
+}
+.perfil-actions .btn {
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ccc;
+    background: #fff;
+    margin-right: 8px;
+}
+.perfil-stats {
+    margin-top: 8px;
+    color: #444;
+}
+.perfil-stats span {
+    margin-right: 14px;
+}
+.perfil-tabs {
+    display: flex;
+    gap: 0;
+    padding: 0 0 0 0;
+    background: #cdc8cd;
+    border-bottom: 1px solid #222;
+    margin-bottom: 18px;
+}
+.perfil-tabs button {
+    flex: 1 1 0;
+    background: none;
+    border: none;
+    outline: none;
+    color: #888;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 16px 0 10px 0;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+}
+.perfil-tabs button.active {
+    color: #fff;
+    font-weight: bold;
+}
+.perfil-tabs button.active::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    bottom: 0;
+    height: 3px;
+    background: #1da1f2;
+    border-radius: 2px 2px 0 0;
+    transition: all 0.2s;
+}
+
 
 /* Links */
 .auth-box a {
@@ -294,3 +650,136 @@ body {
     background: #7d5be6;
 }
 
+/* Barra superior de búsqueda y categorías */
+.top-bar {
+    width: 100vw;
+    min-width: 100%;
+    background: #f1ede4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px 18px 40px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    position: relative;
+    z-index: 10;
+}
+
+.busqueda-form {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 0 18px;
+    height: 48px;
+    min-width: 350px;
+    flex: 1;
+    max-width: 600px;
+}
+.busqueda-input-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.busqueda-form input[type="text"] {
+    background: #fff;
+    border: none;
+    color: #222;
+    font-size: 1.15rem;
+    padding: 0 0 0 38px;
+    height: 38px;
+    width: 100%;
+    border-radius: 32px;
+    outline: none;
+}
+.busqueda-form input[type="text"]::placeholder {
+    color: #888;
+    font-size: 1.05rem;
+}
+.icon-search {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 1.2em;
+}
+
+.busqueda-form button {
+    background: linear-gradient(90deg, #e9e9ff 0%, #f7f7fa 100%);
+    color: #7d5be6;
+    border-radius: 24px;
+    padding: 8px 20px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    border: 2px solid #e0e0e0;
+    margin-left: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(166,142,247,0.10);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, border 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+.busqueda-form button:hover {
+    background: linear-gradient(90deg, #7d5be6 0%, #a68ef7 100%);
+    color: #fff;
+    border: 2px solid #a68ef7;
+    box-shadow: 0 4px 16px rgba(166,142,247,0.18);
+}
+.categorias-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 32px;
+    flex-wrap: wrap;
+}
+.cat-title {
+    font-weight: 600;
+    color: #888;
+    margin-right: 8px;
+}
+
+.cat-item {
+    background: linear-gradient(90deg, #e9e9ff 0%, #f7f7fa 100%);
+    color: #7d5be6;
+    border-radius: 24px;
+    padding: 8px 20px;
+    text-decoration: none;
+    font-size: 1.05rem;
+    margin-right: 8px;
+    margin-bottom: 6px;
+    box-shadow: 0 2px 8px rgba(166,142,247,0.10);
+    font-weight: 500;
+    border: 2px solid #e0e0e0;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, border 0.2s;
+    display: inline-block;
+}
+.cat-item:hover {
+    background: linear-gradient(90deg, #7d5be6 0%, #a68ef7 100%);
+    color: #fff;
+    border: 2px solid #a68ef7;
+    box-shadow: 0 4px 16px rgba(166,142,247,0.18);
+}
+.cat-home {
+    background: linear-gradient(90deg, #e9e9ff 0%, #f7f7fa 100%);
+    color: #7d5be6;
+    border: 2px solid #a68ef7;
+    box-shadow: 0 4px 16px rgba(166,142,247,0.18);
+    font-size: 1.25rem;
+    padding: 8px 18px;
+    margin-right: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, border 0.2s;
+}
+.cat-home i.fa-home {
+    margin-right: 0;
+}
+.cat-home:hover {
+    background: #a68ef7;
+    color: #ffffff;
+    border-color: #7d5be6;
+}

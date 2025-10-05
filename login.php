@@ -8,7 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $gmail = $_POST['gmail'];
     $contraseña = $_POST['contraseña'];
 
-    // Buscar usuario por Gmail
     $stmt = $conn->prepare("SELECT * FROM login WHERE gmail=?");
     $stmt->bind_param("s", $gmail);
     $stmt->execute();
@@ -16,9 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $result->fetch_assoc();
 
     if ($usuario && password_verify($contraseña, $usuario['contraseña'])) {
-        // Login exitoso
         $_SESSION['usuario_id'] = $usuario['id'];
         $_SESSION['nombre_usuario'] = $usuario['nombre_usuario'];
+        $_SESSION['rol'] = $usuario['rol']; // 🔥 Guardamos el rol
         header("Location: index.php");
         exit;
     } else {
@@ -34,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
-<body>
+<body class="auth-container">
 
 <lottie-player 
       src="json/Job proposal review animation.json" 
@@ -44,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       loop 
       autoplay>
   </lottie-player>
-
+  
     <div class="auth-box">
         <h2>Iniciar Sesión</h2>
         <form method="POST">
