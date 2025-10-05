@@ -47,6 +47,32 @@ $result = $stmt->get_result();
     <title>Bolsa de Trabajo</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Scrollbar personalizado para la sección de propuestas */
+        .propuestas::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .propuestas::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .propuestas::-webkit-scrollbar-thumb {
+            background: #7d5be6;
+            border-radius: 4px;
+        }
+        
+        .propuestas::-webkit-scrollbar-thumb:hover {
+            background: #6b4dd6;
+        }
+        
+        /* Para Firefox */
+        .propuestas {
+            scrollbar-width: thin;
+            scrollbar-color: #7d5be6 #f1f1f1;
+        }
+    </style>
 </head>
 <body>
 <!-- Barra superior de búsqueda y categorías -->
@@ -114,7 +140,7 @@ while ($row = $categorias_result->fetch_assoc()) {
         </header>
 
         <!-- Propuestas -->
-        <section class="propuestas" style="max-height: 70vh; overflow-y: auto; padding-right: 8px;">
+        <section class="propuestas" style="height: 60vh; overflow-y: scroll; padding-right: 8px; border: 1px solid #e0e0e0; border-radius: 8px;">
             <?php while($p = $result->fetch_assoc()):
                 $fav_stmt = $conn->prepare("SELECT * FROM favoritos WHERE usuario_id=? AND propuesta_id=?");
                 $fav_stmt->bind_param("ii", $usuario_id, $p['id']);
