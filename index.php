@@ -140,7 +140,7 @@ while ($row = $categorias_result->fetch_assoc()) {
         </header>
 
         <!-- Propuestas -->
-        <section class="propuestas" style="height: 60vh; overflow-y: scroll; padding-right: 8px; border: 1px solid #e0e0e0; border-radius: 8px; width: 100%;">
+        <section class="propuestas" style="height: 75vh; overflow-y: scroll; padding-right: 8px; border: 1px solid #e0e0e0; border-radius: 8px; width: 100%;">
             <?php while($p = $result->fetch_assoc()):
                 $fav_stmt = $conn->prepare("SELECT * FROM favoritos WHERE usuario_id=? AND propuesta_id=?");
                 $fav_stmt->bind_param("ii", $usuario_id, $p['id']);
