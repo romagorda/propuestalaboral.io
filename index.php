@@ -48,6 +48,49 @@ $result = $stmt->get_result();
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
+        /* Hacer que la página ocupe toda la pantalla sin scroll */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        
+        .top-bar {
+            flex-shrink: 0;
+        }
+        
+        .container {
+            height: calc(100vh - 100px); /* Ajustamos para la barra superior */
+            display: flex;
+            overflow: hidden;
+        }
+        
+        .sidebar {
+            flex-shrink: 0;
+            height: 100%;
+            overflow-y: auto;
+        }
+        
+        .main {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .header {
+            flex-shrink: 0;
+        }
+        
+        .favoritos {
+            flex-shrink: 0;
+            height: 100%;
+            overflow-y: auto;
+        }
+        
         /* Scrollbar personalizado para la sección de propuestas */
         .propuestas::-webkit-scrollbar {
             width: 8px;
@@ -71,6 +114,9 @@ $result = $stmt->get_result();
         .propuestas {
             scrollbar-width: thin;
             scrollbar-color: #7d5be6 #f1f1f1;
+            flex: 1;
+            overflow-y: auto;
+            min-height: 0;
         }
     </style>
 </head>
@@ -140,7 +186,7 @@ while ($row = $categorias_result->fetch_assoc()) {
         </header>
 
         <!-- Propuestas -->
-        <section class="propuestas" style="height: 75vh; overflow-y: scroll; padding-right: 8px; border: 1px solid #e0e0e0; border-radius: 8px; width: 100%;">
+        <section class="propuestas" style="overflow-y: scroll; padding-right: 8px; border: 1px solid #e0e0e0; border-radius: 8px; width: 100%;">
             <?php while($p = $result->fetch_assoc()):
                 $fav_stmt = $conn->prepare("SELECT * FROM favoritos WHERE usuario_id=? AND propuesta_id=?");
                 $fav_stmt->bind_param("ii", $usuario_id, $p['id']);
