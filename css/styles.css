@@ -1,21 +1,4 @@
-.propuesta-box select[name="categoria"] {
-    width: 100%;
-    padding: 0.8rem;
-    margin: 0.6rem 0;
-    border-radius: 12px;
-    border: 1px solid #ccc;
-    outline: none;
-    font-size: 1rem;
-    background: #f7f2e9;
-    color: #222;
-    transition: border 0.3s;
-}
-.propuesta-box select[name="categoria"]:focus {
-    border-color: #a68ef7;
-}
-.favoritos .card a {
-    text-decoration: none;
-}
+/* Original card mockup removed — restored single, original .card styles below */
 
 /* ---------------------------
     RESET GLOBAL
@@ -23,11 +6,26 @@
     - Define la tipografía base
     --------------------------- */
 /* Reset */
+:root {
+    /* Paleta y tokens */
+    --bg: #f6f7fb;
+    --card: #ffffff;
+    --muted: #6b6f76;
+    --primary: #7C5CFC;
+    --accent: #A68EF7;
+    --glass: rgba(124,92,252,0.08);
+    --radius-lg: 20px;
+    --radius-md: 12px;
+    --shadow-sm: 0 4px 12px rgba(16,24,40,0.06);
+    --shadow-md: 0 8px 30px rgba(16,24,40,0.08);
+    --font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    --transition-fast: 0.18s;
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Segoe UI", sans-serif;
+    font-family: var(--font-family);
 }
 
 html, body {
@@ -63,15 +61,6 @@ body {
     padding: 20px;
 }
 
-.sidebar {
-    background: #080026;
-    border-radius: 15px;
-    color: #fff;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
 
 /* ---------------------------
    SIDEBAR IZQUIERDA
@@ -80,40 +69,100 @@ body {
 
 /* Sidebar izquierda */
 .sidebar {
-    background: #080026;
-    border-radius: 15px;
-    color: #fff;
-    padding: 20px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    color: #333;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    height: 100%;
 }
 
-.sidebar .profile {
+.sidebar-top, .sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    padding: 8px 0;
 }
 
-.sidebar img {
+.logo i {
+    color: #7C5CFC;
+    font-size: 24px;
+}
+
+.profile {
+    padding: 16px 0;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.profile-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #333;
+}
+
+.profile img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
-.sidebar .menu a {
-    display: block;
-    padding: 10px;
-    color: #fff;
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
     text-decoration: none;
-    border-radius: 20px;
-    margin: 5px 0;
-    transition: background 0.3s;
+    color: #666;
+    border-radius: 12px;
+    transition: all 0.3s ease;
 }
 
-.sidebar .menu a:hover {
-    background: #2c2565;
+.menu-item i {
+    font-size: 20px;
+    width: 24px;
+    text-align: center;
 }
+
+.menu-item span {
+    font-size: 16px;
+}
+
+.menu-item:hover {
+    background-color: #F8F9FE;
+    color: #7C5CFC;
+}
+
+.menu-item.active {
+    background-color: #7C5CFC;
+    color: white;
+}
+
+.sidebar-bottom {
+    border-top: 1px solid #F0F0F0;
+    padding-top: 20px;
+}
+
 
 .main {
     background: #f7f2e9;
@@ -144,6 +193,340 @@ body {
     align-items: center;
     margin-bottom: 20px;
 }
+
+/* Hero banner */
+.hero {
+    display: flex;
+    gap: 40px;
+    background: linear-gradient(120deg, #5b6cff 0%, #9b6dff 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    min-height: 220px;
+}
+.hero-left{
+    flex:1;
+    z-index:2;
+    max-width:500px;
+}
+.hero-left small{
+    opacity:.9;
+    font-weight:600;
+    letter-spacing:1px;
+    font-size:11px;
+}
+.hero-left h1{
+    margin:10px 0;
+    font-size:26px;
+    font-weight:700;
+    line-height:1.2;
+}
+.hero-sub{
+    opacity:.95;
+    color:rgba(255,255,255,0.9);
+    font-size:14px;
+    margin-top:6px;
+    line-height:1.5;
+}
+.hero-actions{
+    margin-top:18px;
+    display:flex;
+    gap:10px;
+}
+.hero-right{
+    flex:0 0 400px;
+    display:flex;
+    align-items:flex-start;
+    justify-content:flex-end;
+    position:absolute;
+    right:30px;
+    top:0;
+    bottom:0;
+    z-index:1;
+}
+.hero-character{
+    width:100%;
+    height:auto;
+    max-height:970px;
+    object-fit:contain;
+    object-position:top right;
+    filter:drop-shadow(0 10px 30px rgba(0,0,0,0.2));
+    transition:transform 0.3s ease;
+    margin-top:-120px;
+}
+.hero-character:hover{
+    transform:scale(1.03);
+}
+
+.btn-primary{background:linear-gradient(90deg,var(--primary),var(--accent));color:#fff;box-shadow:0 10px 30px rgba(124,92,252,0.14);}
+
+/* Dashboard grid */
+.dashboard-grid{display:grid;grid-template-columns:1fr;gap:20px;margin-top:16px;flex:1;min-height:0}
+.grid-main{display:flex;flex-direction:column;gap:12px;min-height:0}
+.cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;flex:1;min-height:0;overflow-y:auto;padding:8px;padding-right:16px}
+
+/* Scrollbar visible para el contenedor de propuestas */
+.cards-grid::-webkit-scrollbar { width: 10px; }
+.cards-grid::-webkit-scrollbar-track { background: transparent; }
+.cards-grid::-webkit-scrollbar-thumb { background: rgba(124,92,252,0.18); border-radius: 10px; }
+.cards-grid { scrollbar-width: thin; scrollbar-color: rgba(124,92,252,0.18) transparent; }
+
+/* Tarjetas (cards) - Job Board Style */
+.card{
+    background:#fff;
+    border-radius:12px;
+    padding:20px 24px 70px 24px;
+    margin-bottom:16px;
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+    transition:box-shadow 0.2s ease,transform 0.2s ease;
+    position:relative;
+}
+.card:hover{
+    box-shadow:0 4px 20px rgba(0,0,0,0.1);
+    transform:translateY(-2px);
+}
+
+/* Logo circular izquierda */
+.card-logo{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    object-fit:cover;
+    flex-shrink:0;
+    border:2px solid #e0e0e0;
+}
+
+/* Contenedor principal del contenido */
+.card-body{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    min-width:0;
+}
+
+/* Header: título, empresa, ubicación */
+.card-header-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+}
+.card-title-company{
+    flex:1;
+    min-width:0;
+}
+.card-title{
+    font-size:18px;
+    font-weight:700;
+    color:#222;
+    margin:0 0 4px 0;
+}
+.card-company{
+    font-size:14px;
+    color:#666;
+    margin:0;
+}
+.card-location{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    color:#666;
+    font-size:14px;
+    white-space:nowrap;
+}
+.card-location i{
+    font-size:12px;
+}
+
+/* Badges (Full-time, Entry, etc) */
+.card-badges{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+.badge{
+    padding:4px 12px;
+    border-radius:4px;
+    font-size:12px;
+    font-weight:600;
+    border:none;
+}
+.badge.full-time{
+    background:#d1fae5;
+    color:#065f46;
+}
+.badge.mid-level{
+    background:#fee2e2;
+    color:#991b1b;
+}
+.badge.entry{
+    background:#d1fae5;
+    color:#065f46;
+}
+.badge.part-time{
+    background:#dbeafe;
+    color:#1e40af;
+}
+
+/* Descripción en bullet points */
+.card-description{
+    margin:0;
+    padding-left:0;
+    list-style:none;
+    color:#444;
+    font-size:14px;
+    line-height:1.6;
+}
+.card-description li{
+    margin-bottom:6px;
+    display:flex;
+    align-items:flex-start;
+}
+
+/* Botón Apply Now */
+.card-apply-btn{
+    position:absolute;
+    bottom:20px;
+    left:24px;
+    background:#a15fe3;
+    color:#fff;
+    border:none;
+    padding:10px 24px;
+    border-radius:6px;
+    font-weight:700;
+    font-size:14px;
+    cursor:pointer;
+    transition:background 0.2s ease;
+}
+.card-apply-btn:hover{
+    background:#a673e0;
+}
+
+/* Botones de acción secundarios (favorito/reportar) */
+.card-actions-secondary{
+    display:flex;
+    gap:8px;
+    position:absolute;
+    bottom:20px;
+    right:24px;
+}
+.card-icon-btn-small{
+    background:transparent;
+    border:1px solid #d1d5db;
+    border-radius:6px;
+    width:36px;
+    height:36px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:all 0.2s ease;
+}
+.card-icon-btn-small:hover{
+    background:#fee2e2;
+    border-color:#ef4444;
+}
+.card-icon-btn-small:hover i{
+    color:#ef4444 !important;
+}
+/* Hover específico para reportar (rojo) */
+.card-icon-btn-small.btn-report:hover{
+    background:#fee2e2;
+    border-color:#ef4444;
+}
+.card-icon-btn-small.btn-report:hover i{
+    color:#ef4444 !important;
+}
+/* Hover específico para editar (azul) */
+.card-icon-btn-small.btn-edit:hover{
+    background:#dbeafe;
+    border-color:#3b82f6;
+}
+.card-icon-btn-small.btn-edit:hover i{
+    color:#3b82f6 !important;
+}
+/* Hover específico para eliminar (rojo oscuro) */
+.card-icon-btn-small.btn-delete:hover{
+    background:#fee2e2;
+    border-color:#dc2626;
+}
+.card-icon-btn-small.btn-delete:hover i{
+    color:#dc2626 !important;
+}
+/* Hover específico para favorito (amarillo) */
+.card-icon-btn-small.btn-favorite:hover{
+    background:#fef3c7;
+    border-color:#f59e0b;
+}
+.card-icon-btn-small.btn-favorite:hover i{
+    color:#f59e0b !important;
+}
+/* Estado activo de favorito (permanece amarillo) */
+.card-icon-btn-small.btn-favorite.active{
+    background:#fef3c7;
+    border-color:#f59e0b;
+}
+.card-icon-btn-small.btn-favorite.active i{
+    color:#f59e0b !important;
+}
+.card-icon-btn-small i{
+    font-size:16px;
+}
+
+.card.small{padding:12px 16px}
+
+/* Estado seleccionado de tarjeta */
+.card.selected{outline:2px solid var(--primary);box-shadow:0 12px 40px rgba(124,92,252,0.12);transform:translateY(-4px)}
+
+/* Meta row with icons inside each card */
+.card-meta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px}
+.card-meta .meta-item{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:13px}
+.card-meta .meta-item i{color:var(--primary);min-width:18px;text-align:center}
+
+/* Right panel */
+.panel-right{display:flex;flex-direction:column;gap:12px}
+.panel-card{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow-sm)}
+.panel-card h4{margin:0 0 8px 0}
+.mentor{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.mentor img{width:32px;height:32px;border-radius:50%}
+
+/* Responsive */
+@media (max-width: 1000px){
+    .container{grid-template-columns:70px 1fr}
+    .dashboard-grid{grid-template-columns:1fr}
+    .cards-grid{grid-template-columns:repeat(1,1fr)}
+    .panel-right{order:2}
+}
+
+/* Contactos (sidebar derecho) */
+.contactos-panel{margin-top:16px;padding-top:12px;border-top:1px dashed #eee}
+.contactos-panel h4{margin:0 0 12px 0;font-size:15px;color:var(--muted)}
+.mentor-list{display:flex;flex-direction:column;gap:10px}
+.mentor{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.mentor img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+.mentor span{font-size:14px;color:#333}
+.mentor:hover{background:var(--glass);border-radius:10px;padding:6px}
+
+/* Contactos como tarjeta separada */
+.contactos-card{padding:12px;border-radius:12px;background:var(--card);box-shadow:var(--shadow-sm);margin-top:16px}
+.contactos-card .card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.contactos-card .card-header h4{margin:0;font-size:15px}
+.contactos-card .details-link{font-size:13px;color:var(--primary);text-decoration:none;padding:6px 8px;border-radius:8px}
+.contactos-card .mentor-list{display:flex;flex-direction:column;gap:10px}
+.mentor{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;padding:6px;border-radius:8px}
+.mentor img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.mentor .mentor-info{display:flex;flex-direction:column}
+.mentor-name{font-weight:600;font-size:14px}
+.mentor-sub{font-size:12px;color:var(--muted)}
+.mentor:hover{background:var(--glass)}
+
 
 .btn {
     background: #a68ef7;

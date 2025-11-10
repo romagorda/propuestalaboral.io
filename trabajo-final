@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-10-2025 a las 22:09:58
+-- Tiempo de generación: 10-11-2025 a las 15:50:49
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -38,18 +38,7 @@ CREATE TABLE `favoritos` (
 --
 
 INSERT INTO `favoritos` (`id`, `usuario_id`, `propuesta_id`) VALUES
-(36, 10, 6),
-(35, 10, 7),
-(34, 10, 8),
-(33, 10, 9),
-(31, 10, 10),
-(32, 10, 11),
-(26, 11, 6),
-(25, 11, 7),
-(24, 11, 8),
-(29, 11, 9),
-(28, 11, 10),
-(27, 11, 11);
+(45, 10, 14);
 
 -- --------------------------------------------------------
 
@@ -92,23 +81,25 @@ CREATE TABLE `propuestas` (
   `descripcion` text DEFAULT NULL,
   `contacto` varchar(150) DEFAULT NULL,
   `categoria` varchar(100) NOT NULL,
-  `usuario_id` int(11) DEFAULT NULL
+  `horario` varchar(50) DEFAULT 'Full-time',
+  `salario` varchar(100) DEFAULT NULL,
+  `usuario_id` int(11) DEFAULT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
+  `activo` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `propuestas`
 --
 
-INSERT INTO `propuestas` (`id`, `propuesta`, `localidad`, `descripcion`, `contacto`, `categoria`, `usuario_id`) VALUES
-(2, 'PROFESOR', 'Santa Teresita', 'SE NECESITA PROFE DE EDUCACION FISICA EN LA 12', '2257500653', '', NULL),
-(4, 'Diseñador web', 'La Lucila', 'Necesito un DW', '2246440318', 'Diseño', NULL),
-(5, 'Podador', 'Mar del Tuyu', 'Necesito que alguien me corte el pasto entre las 15hs y las 17hs', 'prueba@gmail.com', 'Recursos Humanos', NULL),
-(6, 'Niñero', 'Santa Teresita', 'Necesito alguien que cuide a mi hijo a las 10am', '2246440319', 'Recursos Humanos', NULL),
-(7, 'rapero', 'Santa Teresita', 'necesito un rapper gansta', '2246440318', 'Tecnología', 10),
-(8, 'servicio de limpieza', 'Santa Teresita', 'necesito que limpien mi casa en cualquier momento del dia. ', '2246567876', 'Recursos Humanos', 11),
-(9, 'ff', 'fff', 'hh', 'hh', 'Diseño', 11),
-(10, 'dd', 'dds', 'dsd', 'sdsd', 'Tecnología', 11),
-(11, 'www', 'www', 'www', 'www', 'Tecnología', 11);
+INSERT INTO `propuestas` (`id`, `propuesta`, `localidad`, `descripcion`, `contacto`, `categoria`, `horario`, `salario`, `usuario_id`, `fecha_creacion`, `activo`) VALUES
+(7, 'rapero', 'Santa Teresita', 'necesito un rapper gansta', '2246440318', 'Tecnología', 'Full-time', NULL, 10, '2025-11-10 04:47:22', 0),
+(12, 'Diseñador web', 'La Lucila', 'necesito un diseñador web para hacer un proyecto este mes ', '2246440318', 'Tecnología', 'Full-time', NULL, 10, '2025-11-10 04:47:22', 0),
+(13, 'Podador', 'Santa Teresita', 'necesito alguien que corte el pasto a las 14hs', '2246440319', 'Tecnología', 'Contrato', '$50000', 10, '2025-11-10 04:48:32', 0),
+(14, 'Buscando modista!!!', 'La Lucila', 'nesesito que me confeccionen un vestido para un cuumpleaños, necesito bajarle 2 talles', '2246440318', 'Diseño', '9 a 17hs', '', 10, '2025-11-10 04:55:36', 1),
+(15, 'fotografo', 'Santa Teresita', 'Buscamos un/a fotógrafo/a creativo/a y comprometido/a para formar parte de nuestro equipo. La persona seleccionada será responsable de capturar, editar y entregar imágenes que reflejen la identidad y esencia de nuestros proyectos, productos y/o eventos.', '2246440319', 'Tecnología', '9 a 17hs', 'A negociar', 10, '2025-11-10 05:12:12', 0),
+(16, 'Diseñador web', 'La Lucila', 'gfggf', '2246440319', 'Tecnología', '9 a 17hs', 'A negociar', 11, '2025-11-10 14:39:19', 1),
+(17, 'ss', 'ss', 'sss', 'sss', 'Diseño', 'ss', 'A negociar', 11, '2025-11-10 14:46:50', 0);
 
 -- --------------------------------------------------------
 
@@ -120,6 +111,35 @@ CREATE TABLE `propuesta_tag` (
   `propuesta_id` int(11) NOT NULL,
   `tag_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reportes`
+--
+
+CREATE TABLE `reportes` (
+  `id` int(11) NOT NULL,
+  `propuesta_id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `motivo` varchar(255) NOT NULL,
+  `estado` enum('pendiente','resuelto','desactivado') DEFAULT 'pendiente',
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `reportes`
+--
+
+INSERT INTO `reportes` (`id`, `propuesta_id`, `usuario_id`, `motivo`, `estado`, `fecha`) VALUES
+(4, 15, 10, 'gh', 'pendiente', '2025-11-10 13:49:51'),
+(5, 14, 10, 'gh', 'pendiente', '2025-11-10 13:49:53'),
+(6, 13, 10, 'a', 'desactivado', '2025-11-10 14:03:05'),
+(7, 12, 10, 'e', 'desactivado', '2025-11-10 14:05:40'),
+(8, 7, 10, 'e', 'desactivado', '2025-11-10 14:05:42'),
+(9, 12, 10, 'd', 'desactivado', '2025-11-10 14:05:53'),
+(10, 15, 11, 'fsfsf', 'desactivado', '2025-11-10 14:46:29'),
+(11, 17, 10, 'ddd', 'desactivado', '2025-11-10 14:48:32');
 
 -- --------------------------------------------------------
 
@@ -722,6 +742,14 @@ ALTER TABLE `propuesta_tag`
   ADD KEY `tag_id` (`tag_id`);
 
 --
+-- Indices de la tabla `reportes`
+--
+ALTER TABLE `reportes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `propuesta_id` (`propuesta_id`),
+  ADD KEY `usuario_id` (`usuario_id`);
+
+--
 -- Indices de la tabla `tags`
 --
 ALTER TABLE `tags`
@@ -735,7 +763,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT de la tabla `favoritos`
 --
 ALTER TABLE `favoritos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de la tabla `login`
@@ -747,6 +775,12 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT de la tabla `propuestas`
 --
 ALTER TABLE `propuestas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT de la tabla `reportes`
+--
+ALTER TABLE `reportes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
@@ -765,6 +799,13 @@ ALTER TABLE `tags`
 ALTER TABLE `favoritos`
   ADD CONSTRAINT `favoritos_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `login` (`id`),
   ADD CONSTRAINT `favoritos_ibfk_2` FOREIGN KEY (`propuesta_id`) REFERENCES `propuestas` (`id`);
+
+--
+-- Filtros para la tabla `reportes`
+--
+ALTER TABLE `reportes`
+  ADD CONSTRAINT `reportes_ibfk_1` FOREIGN KEY (`propuesta_id`) REFERENCES `propuestas` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `reportes_ibfk_2` FOREIGN KEY (`usuario_id`) REFERENCES `login` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
